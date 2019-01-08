@@ -1,0 +1,50 @@
+<html>
+
+
+<head>
+<style type="text/css">
+	body{
+		background-color: skyblue;
+		text-align: center;
+		color:darkblue;
+	}
+	.section{
+		width: 400px;
+		background-color: white;
+		border-radius: 25px; 
+	}
+	.section a:hover{
+            background-color: green;
+            cursor: pointer;
+            
+        }
+        
+</style>
+	</head>
+
+
+<body>
+	<font size="15" face="sans-serif"><marquee BGCOLOR=YELLOW HEIGHT=50>Swarnandhra College of Engineering and Technology</marquee></font> 
+	<div align="center">
+<div class = 'section'>
+<h1>Departments</h1>
+
+<a href = "{{url_for('newdept', dept_id = dept.dept_id )}}">Create new Dept</a>
+{% for i in dept %}
+
+<a href = "{{url_for('showstudents', dept_id = i.dept_id)}}">
+ <p>{{i.Deptname}}</p></a>
+
+
+<p><a href = "{{url_for('editdept',dept_id = i.dept_id)}}">Edit department</a></p>
+
+<p> <a href = "{{url_for('deletedept',dept_id = i.dept_id)}}">Delete department</a> </p>
+
+
+{% endfor %}
+
+</div>
+</div>
+</body>
+
+</html>
